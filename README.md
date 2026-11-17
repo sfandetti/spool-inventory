@@ -116,7 +116,7 @@ It runs entirely on your network. No account, no cloud, no subscription.
 | **Node.js** | Version **22.13 or newer** (22 LTS or 24 LTS recommended). The app uses Node's built-in SQLite. |
 | **Browser** | Any modern browser to view it. **Chrome or Edge** for USB sync from the Flipper and display setup (they support Web Serial; Firefox and Safari don't). |
 | **Printer** | One or more Bambu Lab printers (X1 / P1 / A1 series and newer) with **LAN Only mode and Developer Mode** turned on, so third-party apps can read their status. |
-| **Optional** | A Flipper Zero to scan spool tags. A Waveshare ESP32-S3-Touch-AMOLED-1.75 for the desk display. |
+| **Optional add-ons** | Spool Inventory is programmed for two add-ons: a small round desk display, the [Waveshare ESP32-S3-Touch-AMOLED-1.75](https://www.waveshare.com/esp32-s3-touch-amoled-1.75.htm) (a case for it is planned but not available yet), and a [Flipper Zero](https://flipperzero.one) to scan spool tags. You don't have to use either one, but they make life a lot easier. |
 
 ## 1. Download
 
