@@ -1,0 +1,17 @@
+{
+  "name": "spool-inventory",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Filament inventory for Bambu Lab printers: live AMS status, shelf stock, Flipper Zero spool scanning.",
+  "type": "module",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.mjs"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "mqtt": "^5.16.1"
+  },
+  "license": "MIT"
+}

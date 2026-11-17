@@ -1,0 +1,12 @@
+App(
+    appid="spool_scanner",
+    name="Spool Scanner",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="spool_scanner_app",
+    stack_size=4 * 1024,
+    requires=["gui", "storage", "notification"],
+    fap_category="NFC",
+    fap_icon="spool_10px.png",
+    fap_version="1.0",
+    fap_description="Tap Bambu Lab filament spools to log them; sync to Spool Inventory over USB.",
+)

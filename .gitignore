@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Your inventory database and printer settings (access codes live here). Never commit it.
+data/
+
+# Build output
+flipper-app/dist/
+flipper-app/.vscode/
+display/build/
+display/SpoolDisplay/build/
+*.bin
+*.elf
+*.map
+*.fap
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.env

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spool Inventory by Noventia.studio</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Spool<span>Inventory</span></h1>
+    <p>Filament on the shelf, scanned with the Flipper Zero</p>
+    <p class="brand">by <a href="https://noventia.studio" target="_blank" rel="noopener"><b>Noventia</b>.studio</a> <span class="sep">·</span> Exclusively for Bambu Lab printers</p>
+  </header>
+
+  <main>
+    <section class="card bar">
+      <button id="sync" class="btn">Sync from Flipper (USB)</button>
+      <label class="btn ghost">Import spools.csv<input id="file" type="file" accept=".csv,text/csv" hidden /></label>
+      <button id="addToggle" class="btn ghost">+ Add roll by hand</button>
+      <label class="check"><input id="showUsed" type="checkbox" /> Show used-up rolls</label>
+      <p id="msg"></p>
+    </section>
+
+    <form id="addForm" class="card add" hidden>
+      <label>Brand<input name="brand" placeholder="e.g. Polymaker" /></label>
+      <label>Material<input name="type" required placeholder="PLA" /></label>
+      <label>Product<input name="detail" placeholder="PLA Matte" /></label>
+      <label>Color<input name="hex" type="color" value="#ff6a13" /></label>
+      <label>Weight g<input name="weight_g" type="number" value="1000" /></label>
+      <label>How many<input name="count" type="number" value="1" min="1" max="50" /></label>
+      <button class="btn">Add</button>
+    </form>
+
+    <section class="card printers">
+      <div class="row"><h2>Printers</h2><button id="printerToggle" class="btn ghost small">+ Add printer</button></div>
+      <div id="printerList"></div>
+      <form id="printerForm" class="add" hidden>
+        <label>Name<input name="name" placeholder="A1" /></label>
+        <label>IP address<input name="ip" required placeholder="192.168.1.92" /></label>
+        <label>Access code<input name="accessCode" type="password" required autocomplete="off" placeholder="from the printer screen" /></label>
+        <button class="btn">Connect</button>
+        <p class="muted small-note">On the printer: Settings → Network (LAN only + Developer Mode). The code stays on this PC.</p>
+      </form>
+    </section>
+
+    <section class="card printers" id="displayCard" hidden>
+      <div class="row"><h2>Round display</h2><button id="displayToggle" class="btn ghost small">Set up over USB</button></div>
+      <form id="displayForm" class="add" hidden>
+        <label>Wi-Fi network<select name="ssid" id="ssidSelect" required></select></label>
+        <label>Wi-Fi password<input name="pass" type="password" autocomplete="off" /></label>
+        <label>This PC's address<select name="server" id="serverAddr"></select></label>
+        <button class="btn">Send to display</button>
+        <p class="muted small-note">Pick your network and type its password. The Wi-Fi details go straight to the display over the cable and are stored only on it.</p>
+      </form>
+    </section>
+
+    <section class="stats">
+      <div class="card"><small>Rolls on hand</small><b id="sRolls">0</b><small id="sLoaded"></small></div>
+      <div class="card"><small>Filament left</small><b id="sKg">0 kg</b></div>
+      <div class="card"><small>Materials</small><b id="sTypes">0</b></div>
+    </section>
+
+    <section id="loaded"></section>
+    <h2 class="fam shelf-title" id="shelfTitle" hidden><span>On the shelf</span></h2>
+    <section id="groups"></section>
+    <p id="empty" class="card muted" hidden>
+      No rolls yet. On the Flipper open <b>Apps → NFC → Spool Scanner</b>, tap each roll's tag to the back of the Flipper,
+      then plug it in here and press <b>Sync from Flipper</b>.
+    </p>
+    <p class="muted foot brandfoot">Spool Inventory by <a href="https://noventia.studio" target="_blank" rel="noopener">Noventia.studio</a> · Exclusively for Bambu Lab printers</p>
+    <p class="muted foot" id="displayFoot" hidden>Round display connected <span id="displayIp"></span> · <a href="#" id="displayRedo">change its Wi-Fi</a></p>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
